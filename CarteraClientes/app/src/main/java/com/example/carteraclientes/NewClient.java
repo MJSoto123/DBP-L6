@@ -3,7 +3,7 @@ package com.example.carteraclientes;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.tutoriales.carteraclientes.BaseDatos.DatosOpenHelper;
+import com.tutoriales.carteraclientes.BaseDatos.DbHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -31,7 +31,7 @@ public class ActNuevoCliente extends AppCompatActivity {
     private EditText edtTelefono;
 
     private SQLiteDatabase conexion;
-    private DatosOpenHelper datosOpenHelper;
+    private DbHelper datosOpenHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class ActNuevoCliente extends AppCompatActivity {
             case R.id.action_ok:
                 if(bCamposCorrectos()) {
                     try {
-                        datosOpenHelper = new DatosOpenHelper(this);
+                        datosOpenHelper = new DbHelper(this);
                         conexion = datosOpenHelper.getWritableDatabase();
                         StringBuilder sql = new StringBuilder();
                         sql.append("INSERT INTO CLIENTE (NOMBRE, DIRECCION, EMAIL, TELEFONO) VALUES ('");
@@ -86,7 +86,7 @@ public class ActNuevoCliente extends AppCompatActivity {
                     AlertDialog.Builder dlg = new AlertDialog.Builder(this);
                     dlg.setTitle("Aviso");
                     dlg.setMessage("Existen campos vacios");
-                    dlg.setNeutralButton("OK", null);
+                    dlg.setNeutralButton("CREAR NUEVO ClIENTE", null);
                     dlg.show();
                 }
                 //Toast.makeText(this,"Boton Ok seleccionado", Toast.LENGTH_SHORT).show();
