@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.tutoriales.carteraclientes.BaseDatos.DatosOpenHelper;
+import com.example.carteraclientes.BaseDatos.DbHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -32,7 +32,7 @@ public class ActMain extends AppCompatActivity {
     private ArrayList<String> clientes;
 
     private SQLiteDatabase conexion;
-    private DatosOpenHelper datosOpenHelper;
+    private DbHelper datosOpenHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
